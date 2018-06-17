@@ -84,8 +84,14 @@ class ProfileEditPageState extends State<ProfileEditPage> {
         color: Colors.white,
       );
     } else {
-      // TODO: aspect ratio
-      return ClipOval(child: Image.file(_image));
+      return ClipOval(
+        child: Container(
+          width: 96.0,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: Image.file(_image).image)),
+        ),
+      );
     }
   }
 
