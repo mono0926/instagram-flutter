@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -54,7 +53,8 @@ class ProfileEditPageState extends State<ProfileEditPage> {
                           height: 96.0,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(color: Colors.grey, width: 1.0)),
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0)),
                           child: CircleAvatar(
                               backgroundColor: Colors.blueGrey,
                               child: _buildImage()),
@@ -110,11 +110,11 @@ class ProfileEditPageState extends State<ProfileEditPage> {
           ),
           Expanded(
             child: TextFormField(
-                decoration: InputDecoration.collapsed(
-                    border: UnderlineInputBorder(),
-                    hintText: _fieldTitle(type)),
-                onSaved: (value) => _fieldOnSaved(type, value),
-                validator: (value) => _fieldOnValidate(type, value),),
+              decoration: InputDecoration.collapsed(
+                  border: UnderlineInputBorder(), hintText: _fieldTitle(type)),
+              onSaved: (value) => _fieldOnSaved(type, value),
+              validator: (value) => _fieldOnValidate(type, value),
+            ),
             flex: 8,
           ),
         ],
@@ -124,11 +124,16 @@ class ProfileEditPageState extends State<ProfileEditPage> {
 
   String _fieldTitle(FieldType type) {
     switch (type) {
-      case FieldType.name: return 'Name';
-      case FieldType.username: return 'Username';
-      case FieldType.website: return 'Website';
-      case FieldType.bio: return 'Bio';
-      default: return '';
+      case FieldType.name:
+        return 'Name';
+      case FieldType.username:
+        return 'Username';
+      case FieldType.website:
+        return 'Website';
+      case FieldType.bio:
+        return 'Bio';
+      default:
+        return '';
     }
   }
 
@@ -172,9 +177,4 @@ class ProfileEditPageState extends State<ProfileEditPage> {
   }
 }
 
-enum FieldType {
-  name,
-  username,
-  website,
-  bio
-}
+enum FieldType { name, username, website, bio }
