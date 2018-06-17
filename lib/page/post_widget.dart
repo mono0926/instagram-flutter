@@ -28,7 +28,7 @@ class PostWidget extends StatelessWidget {
                     ),
                     Container(width: 8.0),
                     Text(
-                      post.user.account,
+                      post.user.username,
                       style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
                     )
                   ],
@@ -74,7 +74,7 @@ class PostWidget extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           Text(
-                            post.user.account,
+                            post.user.username,
                             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
                           ),
                           Container(width: 3.0),

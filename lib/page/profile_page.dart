@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mono_sample/entity/post.dart';
 import 'package:mono_sample/entity/user.dart';
 import 'package:mono_sample/page/post_widget.dart';
+import 'package:mono_sample/page/profile_edit_page.dart';
 
 class ProfilePage extends StatelessWidget {
   final me = User.me;
@@ -15,15 +16,13 @@ class ProfilePage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      child: Container(
-        child: ListView(
-          children: _buildChildren(),
-        ),
+      child: ListView(
+        children: _buildChildren(context),
       ),
     );
   }
 
-  List<Widget> _buildChildren() {
+  List<Widget> _buildChildren(BuildContext context) {
     final List<Widget> widgets = [];
     widgets.add(Padding(
       padding: const EdgeInsets.all(12.0),
@@ -69,8 +68,11 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       height: 28.0,
                       child: OutlineButton(
-                        child: Text('Edit Profile', style: TextStyle(fontSize: 13.0)),
-                        onPressed: _editProfileTapped,
+                        child: Text('Edit Profile',
+                            style: TextStyle(fontSize: 13.0)),
+                        onPressed: () {
+                          _editProfileTapped(context);
+                        },
                         borderSide: BorderSide(color: Colors.black54),
 //                  color: Colors.black,
                         shape: RoundedRectangleBorder(
@@ -82,9 +84,14 @@ class ProfilePage extends StatelessWidget {
               )
             ],
           ),
-          Container(height: 8.0,),
-          Text(me.name, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0)),
-          Container(height: 4.0,),
+          Container(
+            height: 8.0,
+          ),
+          Text(me.name,
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0)),
+          Container(
+            height: 4.0,
+          ),
           Text(me.about, style: TextStyle(fontSize: 12.0)),
         ],
       ),
@@ -108,5 +115,12 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  void _editProfileTapped() {}
+  void _editProfileTapped(BuildContext context) {
+    Navigator.of(context, rootNavigator: true).push(
+          new CupertinoPageRoute<bool>(
+            fullscreenDialog: true,
+            builder: (BuildContext context) => new ProfileEditPage(),
+          ),
+        );
+  }
 }

@@ -18,6 +18,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   firebase_messaging:
   mockito:
+  image_picker:
 
 dev_dependencies:
   flutter_test:
