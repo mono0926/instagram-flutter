@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mono_sample/layout_type.dart';
 import 'package:mono_sample/page/home_page.dart';
@@ -14,7 +15,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: _buildTabBar(),
       body: Container(
         child: _buildPage(),
         decoration: BoxDecoration(
@@ -26,9 +27,10 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
+  CupertinoTabBar _buildTabBar() {
+    return CupertinoTabBar(
+//      type: BottomNavigationBarType.fixed,
+      activeColor: Theme.of(context).primaryColor,
       currentIndex: _currentIndex,
       items: [
         _buildNavigationItem(LayoutType.home),
@@ -43,7 +45,11 @@ class _MainPageState extends State<MainPage> {
 
   BottomNavigationBarItem _buildNavigationItem(LayoutType type) {
     return BottomNavigationBarItem(
-        title: Text(_navigationBarTitle(type)), icon: Icon(_icon(type)));
+        title: Text(
+          '',
+          style: TextStyle(fontSize: 0.0),
+        ),
+        icon: Icon(_icon(type)));
   }
 
   IconData _icon(LayoutType type) {
@@ -60,23 +66,6 @@ class _MainPageState extends State<MainPage> {
         return Icons.person_outline;
       default:
         return Icons.add;
-    }
-  }
-
-  String _navigationBarTitle(LayoutType type) {
-    switch (type) {
-      case LayoutType.home:
-        return 'Home';
-      case LayoutType.search:
-        return 'Search';
-      case LayoutType.add:
-        return 'Add';
-      case LayoutType.alert:
-        return 'Alert';
-      case LayoutType.profile:
-        return 'Profile';
-      default:
-        return '';
     }
   }
 

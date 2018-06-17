@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mono_sample/entity/post.dart';
 import 'package:mono_sample/entity/user.dart';
@@ -8,23 +9,15 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
+      appBar: CupertinoNavigationBar(
+        middle: Text(
           me.name,
           style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Colors.white,
-        brightness: Brightness.light,
-        elevation: 0.0,
       ),
       body: Container(
         child: ListView(
           children: _buildChildren(),
-        ),
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(color: Colors.grey[200]),
-          ),
         ),
       ),
     );

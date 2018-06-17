@@ -11,7 +11,7 @@ class PostWidget extends StatelessWidget {
       return Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(11.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -19,14 +19,17 @@ class PostWidget extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       width: 32.0,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.grey, width: 0.5)),
                       child: ClipOval(
                         child: Image.asset(post.user.imagePath),
                       ),
                     ),
                     Container(width: 8.0),
                     Text(
-                      post.user.name,
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      post.user.account,
+                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
                     )
                   ],
                 ),
@@ -36,7 +39,7 @@ class PostWidget extends StatelessWidget {
           ),
           Image.asset(post.imagePath),
           Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -45,38 +48,47 @@ class PostWidget extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Icon(Icons.favorite_border),
-                        Container(width: 8.0),
-                        Icon(Icons.chat_bubble_outline),
-                        Container(width: 8.0),
-                        Icon(Icons.mail_outline),
+                        _buildIcon(Icons.favorite_border),
+                        Container(width: 13.0),
+                        _buildIcon(Icons.chat_bubble_outline),
+                        Container(width: 13.0),
+                        _buildIcon(Icons.mail_outline),
                       ],
                     ),
                     Row(
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                          child: Icon(Icons.bookmark_border),
+                          child: _buildIcon(Icons.bookmark_border),
                         )
                       ],
                     ),
                   ],
                 ),
-                Container(height: 8.0),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      'mono',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    Container(width: 8.0),
-                    Text(post.comment)
-                  ],
-                ),
-                Container(height: 4.0),
-                // TODO: use real data
-                Text('7分前',
-                    style: TextStyle(color: Colors.black54, fontSize: 12.0))
+                Container(height: 9.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            post.user.account,
+                            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
+                          ),
+                          Container(width: 3.0),
+                          Text(post.comment,
+                              style: TextStyle(fontSize: 12.0))
+                        ],
+                      ),
+                      Container(height: 4.0),
+                      // TODO: use real data
+                      Text('7分前',
+                          style: TextStyle(color: Colors.black54, fontSize: 9.0)),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
@@ -84,4 +96,6 @@ class PostWidget extends StatelessWidget {
       );
     }
   }
+
+  Icon _buildIcon(IconData icon) => Icon(icon, size: 28.0,);
 }
