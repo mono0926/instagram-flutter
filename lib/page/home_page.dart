@@ -32,20 +32,18 @@ import 'package:mono_sample/page/post_widget.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CupertinoNavigationBar(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
         middle: Text(
           "イッヌスタグラム",
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Container(
-        child: ListView(
-          // TODO: lazy infinite list
+      child: ListView(
+        // TODO: lazy infinite list
           children: Post.posts.map((post) {
             return PostWidget(post: post);
-          }).toList(),
-        ),
+          }).toList()
       ),
     );
   }

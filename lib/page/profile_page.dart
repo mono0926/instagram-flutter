@@ -8,14 +8,14 @@ class ProfilePage extends StatelessWidget {
   final me = User.me;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CupertinoNavigationBar(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
         middle: Text(
           me.name,
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Container(
+      child: Container(
         child: ListView(
           children: _buildChildren(),
         ),

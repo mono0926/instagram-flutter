@@ -17,19 +17,13 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       bottomNavigationBar: _buildTabBar(),
       body: Container(
-        child: _buildPage(),
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(color: Colors.grey[200]),
-          ),
-        ),
+        child: _buildPage()
       ),
     );
   }
 
   CupertinoTabBar _buildTabBar() {
     return CupertinoTabBar(
-//      type: BottomNavigationBarType.fixed,
       activeColor: Theme.of(context).primaryColor,
       currentIndex: _currentIndex,
       items: [
