@@ -49,13 +49,13 @@ class _MainPageState extends State<MainPage> {
       case LayoutType.home:
         return Icons.home;
       case LayoutType.search:
-        return CupertinoIcons.search;
+        return Icons.search;
       case LayoutType.add:
         return Icons.add_a_photo;
       case LayoutType.alert:
         return Icons.favorite_border;
       case LayoutType.profile:
-        return CupertinoIcons.profile_circled;
+        return Icons.person_outline;
       default:
         return Icons.add;
     }
