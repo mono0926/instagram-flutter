@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mono_sample/entity/post.dart';
 import 'package:mono_sample/page/post_widget.dart';
 
@@ -32,6 +33,7 @@ import 'package:mono_sample/page/post_widget.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(
@@ -40,12 +42,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: ListView(
-        // TODO: lazy infinite list
+          // TODO: lazy infinite list
           children: Post.posts.map((post) {
-            return PostWidget(post: post);
-          }).toList()
-      ),
+        return PostWidget(post: post);
+      }).toList()),
     );
   }
-
 }

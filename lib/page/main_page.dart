@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:mono_sample/entity/user.dart';
 import 'package:mono_sample/layout_type.dart';
 import 'package:mono_sample/page/home_page.dart';
 import 'package:mono_sample/page/profile_page.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -12,11 +15,22 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   var _layoutType = LayoutType.home;
   var _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: _buildTabBar(),
-      body: _buildPage(),
+    return ScopedModelDescendant<AccountModel>(
+      builder: (context, child, model) {
+        if (model.user == null) {
+          return Container(
+              color: Colors.white,
+              child: Center(child: CircularProgressIndicator()));
+        }
+
+        return Scaffold(
+          bottomNavigationBar: _buildTabBar(),
+          body: _buildPage(),
+        );
+      },
     );
   }
 

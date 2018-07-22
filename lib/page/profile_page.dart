@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.grey, width: 0.5)),
                     child: ClipOval(
-                      child: Image.asset(me.imagePath),
+                      child: Image.asset(me.imageUrl),
                     ),
                   ),
                 ),
@@ -117,10 +117,10 @@ class ProfilePage extends StatelessWidget {
 
   void _editProfileTapped(BuildContext context) {
     Navigator.of(context, rootNavigator: true).push(
-          new CupertinoPageRoute<bool>(
-            fullscreenDialog: true,
-            builder: (BuildContext context) => new ProfileEditPage(),
-          ),
-        );
+      new CupertinoPageRoute<bool>(
+        fullscreenDialog: true,
+        builder: (BuildContext context) => new ProfileEditPage(),
+      ),
+    );
   }
 }

@@ -23,13 +23,14 @@ class PostWidget extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.grey, width: 0.5)),
                       child: ClipOval(
-                        child: Image.asset(post.user.imagePath),
+                        child: Image.asset(post.user.imageUrl),
                       ),
                     ),
                     Container(width: 8.0),
                     Text(
                       post.user.username,
-                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 13.0),
                     )
                   ],
                 ),
@@ -75,17 +76,18 @@ class PostWidget extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             post.user.username,
-                            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.0),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 13.0),
                           ),
                           Container(width: 3.0),
-                          Text(post.comment,
-                              style: TextStyle(fontSize: 12.0))
+                          Text(post.comment, style: TextStyle(fontSize: 12.0))
                         ],
                       ),
                       Container(height: 4.0),
                       // TODO: use real data
                       Text('7分前',
-                          style: TextStyle(color: Colors.black54, fontSize: 9.0)),
+                          style:
+                              TextStyle(color: Colors.black54, fontSize: 9.0)),
                     ],
                   ),
                 )
@@ -97,5 +99,8 @@ class PostWidget extends StatelessWidget {
     }
   }
 
-  Icon _buildIcon(IconData icon) => Icon(icon, size: 28.0,);
+  Icon _buildIcon(IconData icon) => Icon(
+        icon,
+        size: 28.0,
+      );
 }

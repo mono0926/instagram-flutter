@@ -1,7 +1,1 @@
-enum LayoutType {
-  home,
-  search,
-  add,
-  alert,
-  profile
-}
+enum LayoutType { home, search, add, alert, profile }
