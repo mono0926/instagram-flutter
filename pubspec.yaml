@@ -19,6 +19,9 @@ dependencies:
   firebase_messaging:
   mockito:
   image_picker:
+  firebase_auth:
+  cloud_firestore:
+  scoped_model:
 
 dev_dependencies:
   flutter_test:
