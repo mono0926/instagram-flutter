@@ -5,13 +5,20 @@
 .packages
 .pub/
 build/
-# If you're building an application, you may want to check-in your pubspec.lock
-pubspec.lock
+
 .flutter-plugins
 
-# Directory created by dartdoc
-# If you don't generate documentation locally you can remove this line.
+# Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+## Mac
+.DS_Store
+
 doc/api/
+
+#Firebase
 GoogleService-Info.plist
-/.idea
 google-services.json
