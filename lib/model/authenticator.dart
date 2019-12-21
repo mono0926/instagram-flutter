@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
@@ -19,7 +20,8 @@ class FirebaseAuthenticator implements Authenticator {
       print('currentUser: $currentUser');
       return AuthUser(id: currentUser.uid);
     }
-    final user = await _auth.signInAnonymously();
+    final result = await _auth.signInAnonymously();
+    final user = result.user;
     print('user created: $user');
     return AuthUser(id: user.uid);
   }
