@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mono_sample/entity/post.dart';
 import 'package:mono_sample/page/post_widget.dart';
 

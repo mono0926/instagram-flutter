@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mono_sample/entity/user.dart';
 import 'package:mono_sample/layout_type.dart';
 import 'package:mono_sample/page/home_page.dart';
